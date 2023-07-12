@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Martín
+apellido: Morales
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -49,17 +49,62 @@ class App(customtkinter.CTk):
         self.btn_dividir = customtkinter.CTkButton(master=self, text="Dividir", command=self.btn_dividir_on_click)
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
+
     def btn_sumar_on_click(self):
-        pass
+        txt_operador_A=self.txt_operador_a.get()
+        txt_operador_B=self.txt_operador_b.get()
+
+        int_operador_A=int(txt_operador_A) 
+        int_operador_B=int(txt_operador_B) 
+
+        int_suma= int_operador_A +  int_operador_B
+        txt_suma=str(int_suma)
+        
+        mensaje= "El resultado de la suma es: " + txt_suma
+        alert(title="Suma", message=mensaje)
+
 
     def btn_restar_on_click(self):
-        pass
+        txt_operador_A=self.txt_operador_a.get()
+        txt_operador_B=self.txt_operador_b.get()
+
+        int_operador_A=int(txt_operador_A) 
+        int_operador_B=int(txt_operador_B) 
+
+        int_resta= int_operador_A -  int_operador_B
+        txt_resta=str(int_resta)
+        
+        mensaje= "El resultado de la resta es: " + txt_resta
+        alert(title="Resta", message=mensaje)
+        
 
     def btn_multiplicar_on_click(self):
-        pass
+        txt_operador_A=self.txt_operador_a.get()
+        txt_operador_B=self.txt_operador_b.get()
+
+        int_operador_A=int(txt_operador_A) 
+        int_operador_B=int(txt_operador_B) 
+
+        int_multiplicar= int_operador_A *  int_operador_B
+        txt_multiplicar=str(int_multiplicar)
+        
+        mensaje= "El resultado de la multiplicar es: " + txt_multiplicar
+        alert(title="Multiplicación", message=mensaje)
+        
 
     def btn_dividir_on_click(self):
-        pass
+        txt_operador_A=self.txt_operador_a.get()
+        txt_operador_B=self.txt_operador_b.get()
+
+        int_operador_A=int(txt_operador_A) 
+        int_operador_B=int(txt_operador_B) 
+
+        int_divivir= int_operador_A /  int_operador_B
+        txt_divivir=str(int_divivir)
+        
+        mensaje= "El resultado de la división es: " + txt_divivir
+        alert(title="División", message=mensaje)
+        
         
 if __name__ == "__main__":
     app = App()

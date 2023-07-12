@@ -33,11 +33,34 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        nombre = prompt("Nombre", "Cual es tu nombre?")
-        self.txt_nombre = nombre
+        
+        #entrada de datos
+        #nombre = prompt(title = "Datos", prompt = "Nombre")
+        #apellido = prompt(title = "Datos", prompt = "Apellido")
 
-        self.txt_nombre.delete(0, 100)
-        self.txt_nombre.insert(0, nombre)
+        operando1 = prompt(title="Numeros", prompt="Operando 1:")
+        operando2 = prompt(title="Numeros", prompt="Operando 2:")
+
+        operando1 = int(operando1)
+        operando2 = int(operando2)
+
+        #proceso +
+        #operando1 operador operando2
+        #   5   *   5
+        #   10  +   10
+
+        #   str +   str = strstr
+        #   Hola    +   Pepe = Hola Pepe
+        suma = operando1 + operando2 #sumo aritmetica
+
+        #salida
+        self.txt_nombre.delete(0,100)
+        self.txt_nombre.insert(0,suma)
+        pass
+
+
+        #self.txt_nombre.delete(0, 100)
+        #self.txt_nombre.insert(0, nombre)
 
 
         
