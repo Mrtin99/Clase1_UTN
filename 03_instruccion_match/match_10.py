@@ -9,23 +9,13 @@ import customtkinter
 nombre: Martín
 apellido: Morales
 
-Una agencia de viajes cobra $15.000 por cada estadía como base. 
-Luego para calcular las tarifas total realiza el siguiente cálculo, 
-en función de la estación del año y del destino elegido:
-    Si es invierno: 
-        Bariloche tiene un aumento del 20% 
-        Cataratas y Córdoba tienen un descuento del 10%
-        Mar del plata tiene un descuento del 20%
-    Si es Verano:
-        Bariloche tiene un descuento del 20%
-        Cataratas y Cordoba tienen un aumento del 10%
-        Mar del plata tiene un aumento del 20%
-    Si es Primavera u Otoño:
-        Bariloche tiene un aumento del 10%
-        Cataratas tiene un aumento del 10%
-        Mar del plata tiene un aumento del 10%
-        Córdoba tiene precio sin descuento
-
+Una agencia de viajes nos pide informar si hacemos viajes a lugares según la estación del año. 
+En caso de hacerlo mostrar un alert con el mensaje “Se viaja”, 
+caso contrario mostrar “No se viaja”. 
+    Si es invierno: solo se viaja a Bariloche
+    Si es verano: se viaja a Mar del plata y Cataratas
+    Si es otoño: se viaja a todos los lugares
+    Si es primavera: se viaja a todos los lugares menos Bariloche
 '''
 
 
@@ -55,44 +45,40 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        PRECIO = 15000
         destino = self.combobox_destino.get()
         estaciones = self.combobox_estaciones.get()
-        porcentaje = 1
-
-
+        mensaje_positivo = "Se viaja"
+        mensaje_negativo = "No se viaja"
+        mensaje = " "
 
         match estaciones:
             case "Invierno":
                 match destino:
                     case "Bariloche":
-                        porcentaje = 1.2 #para sacar incremento sumo 1 ---->  1 + 0,2 
-                    case "Mar del plata":
-                        porcentaje = 0.8 #para sacar incremento resto 1 -----> 1 - 0.2
+                        mensaje=mensaje_positivo
                     case _:
-                        porcentaje = 0.9
+                        mensaje=mensaje_negativo
             case "Verano":
                 match destino:
-                    case "Bariloche":
-                        porcentaje = 0.8
-                    case "Mar del plata":
-                        porcentaje = 1.2
+                    case "Mar del plata" | "Cataratas":
+                        mensaje=mensaje_positivo
                     case _:
-                        porcentaje = 1.1
-            case _:
+                        mensaje=mensaje_negativo
+            case "Otoño":
                 match destino:
-                    case "Bariloche" | "Cataratas" | "Mar del plata":
-                        porcentaje = 1.1
-                    case "Cordoba":
-                        porcentaje = 1
+                    case _:
+                        mensaje=mensaje_positivo
+            case "Primavera":
+                match destino:
+                    case "Bariloche":
+                        mensaje=mensaje_negativo
+                    case _:
+                        mensaje=mensaje_positivo
 
-        precio_final = PRECIO * porcentaje
-        alert(title = str(estaciones) + " en " + str(destino), message="Tiene un precio de $" + str(precio_final) )
-
-
-
+        alert(title=destino, message= mensaje)
             
     
 if __name__ == "__main__":
     app = App()
+    app.geometry("300x300")
     app.mainloop()
