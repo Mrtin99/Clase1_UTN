@@ -51,7 +51,7 @@ class App(customtkinter.CTk):
         ingreso_numero = 1
 
         while ingreso_numero != 10:
-            alert(title="Número ingresado", message=ingreso_numero)
+            alert(title="Ingreso num", message=ingreso_numero)
             ingreso_numero +=1
         
         alert("Fin", "FIn")
