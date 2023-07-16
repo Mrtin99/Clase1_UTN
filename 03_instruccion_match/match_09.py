@@ -82,7 +82,7 @@ class App(customtkinter.CTk):
                 match destino:
                     case "Bariloche" | "Mar del plata" | "Cataratas":
                     
-                        porcentaje 1.1
+                        porcentaje = 1.1
                     case "Cordoba":
                         porcentaje = 1
         
