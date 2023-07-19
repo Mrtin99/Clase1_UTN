@@ -68,7 +68,7 @@ class App(customtkinter.CTk):
                     case "Bariloche":
                         porcentaje = 1.2 #para sacar incremento sumo 1 ---->  1 + 0,2 
                     case "Mar del plata":
-                        porcentaje = 0.8 #para sacar incremento resto 1 -----> 1 - 0.2
+                        porcentaje = 0.8 #para sacar decremento resto 1 -----> 1 - 0.2
                     case _:
                         porcentaje = 0.9
             case "Verano":

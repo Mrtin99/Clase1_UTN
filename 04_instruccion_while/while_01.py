@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+nombre: Martín
+apellido: Morales
+
 Enunciado:
 Al presionar el botón "Mostrar Iteración", mostrar mediante alert 
 10 repeticiones con números ASCENDENTE desde el 1 al 10
@@ -48,14 +51,46 @@ class App(customtkinter.CTk):
 
         # alert("Fin", "Precio total: " + str(acumulador_precios))
 
-        ingreso_numero = 1
+        # ingreso_numero = 1
 
-        while ingreso_numero != 10:
-            alert(title="Ingreso num", message=ingreso_numero)
-            ingreso_numero +=1
+        # while ingreso_numero != 10:
+        #     alert(title="Ingreso num", message=ingreso_numero)
+        #     ingreso_numero +=1
         
-        alert("Fin", "FIn")
+        # alert("Fin", "FIn")
+
+        # contador = 1
+
+        # while contador <= 10:
+        #     alert(title="Número", message=contador)
+        #     contador = contador + 1
     
+
+        #Clase Lune 17
+        #ejemplo de prmedio de notas, etc
+        contador = 0
+        acumulador = 0
+        numero = 1
+        numero = int(prompt("Numero", "Ingrese un numero"))
+        #op1 != op2
+
+        #not True = False
+        #not False =  True
+
+        # "Algo" .isdigit() => True 0-9, de lo contrario false
+        # str.isalpha() => True a-z A-Z, de lo contrario false
+        # str.alnum() => True a-zA-Z
+
+        while contador < 5 and numero != 0:
+            
+            acumulador += numero
+            contador += 1
+        
+        print("La sumatoria es: ", str(acumulador))
+
+
+
+
     
 if __name__ == "__main__":
     app = App()
